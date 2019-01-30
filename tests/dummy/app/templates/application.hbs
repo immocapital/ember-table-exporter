@@ -1,3 +1,22 @@
-<h2 id="title">Welcome to Ember</h2>
+<h2 id="title">Welcome to the Ember-XLSX example page</h2>
 
 {{outlet}}
+
+{{#xlsx-download-link
+  filename='my-fine-data.xlsx'
+  data=myData
+  worksheetTitle='Historical weather data'
+}}
+  Download ALL THE DATA!
+{{/xlsx-download-link}}
+
+{{#csv-download-link
+  filename='my-fine-data.csv'
+  data=myData
+}}
+  I prefer plain text
+{{/csv-download-link}}
+
+<p>
+  <b>Hint:</b> Look at <code>application.hbs</code> to see what's going on.
+</p>

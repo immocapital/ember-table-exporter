@@ -1,28 +1,56 @@
-ember-xlsx
-==============================================================================
+# ember-xlsx
 
-[Short description of the addon.]
+Ember-wrapper for the XLSX package. Also includes some handy components for downloading EmberData records and plain JavaScript objects as CSV or XLSX files.
 
-Installation
-------------------------------------------------------------------------------
+## Installation
 
 ```
 ember install ember-xlsx
 ```
 
+## Usage
 
-Usage
-------------------------------------------------------------------------------
+To render a download-link for an XLSX file:
 
-[Longer description of how to use the addon in apps.]
+```hbs
+{{#xlsx-download-link
+  filename='my-fine-data.xlsx'
+  data=my-data
+  worksheetTitle='Historical weather data'
+}}
+  Download ALL THE DATA!
+{{/xlsx-download-link}}
+```
 
+The `data` should be an `Array` (or `EmberArray`) of objects that all have the same shape. They can be either `EmberObject`s or plain JavaScript objects. Example:
 
-Contributing
-------------------------------------------------------------------------------
+```js
+[
+  { 'date': '2011-04-01', 'rain': 'yes' },
+  { 'date': '2012-01-04', 'rain': 'no'  },
+]
+```
+
+The `filename` and `worksheetTitle` attributes are optional and will use `data.xlsx` and `Untitled worksheet` as fallback values.
+
+To render a download-link for a CSV file:
+
+```hbs
+{{#csv-download-link
+  filename='my-fine-data.csv'
+  data=my-data
+}}
+  I prefer plain text
+{{/csv-download-link}}
+```
+
+To use any other functionality provided by the [XLSX][npm-xlsx] package, simply `import XLSX from 'ember-xlsx';`.
+
+## Contributing
 
 ### Installation
 
-* `git clone <repository-url>`
+* `git clone https://github.com/immocapital/ember-xlsx`
 * `cd ember-xlsx`
 * `npm install`
 
@@ -44,7 +72,6 @@ Contributing
 
 For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
 
-License
-------------------------------------------------------------------------------
+## License
 
 This project is licensed under the [MIT License](LICENSE.md).
