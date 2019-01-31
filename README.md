@@ -1,6 +1,6 @@
 # ember-xlsx
 
-Ember-wrapper for the XLSX package. Also includes some handy components for downloading EmberData records and plain JavaScript objects as CSV or XLSX files.
+Ember-wrapper for the [XLSX][npm-xlsx] package. Also includes some handy components for downloading EmberData records and plain JavaScript objects as CSV or XLSX files.
 
 ## Installation
 
@@ -44,7 +44,9 @@ To render a download-link for a CSV file:
 {{/csv-download-link}}
 ```
 
-To use any other functionality provided by the [XLSX][npm-xlsx] package, simply `import XLSX from 'ember-xlsx';`.
+To use any other functionality provided by the [XLSX][npm-xlsx] package, simply use the `XLSX` global anywhere in your app.
+
+[npm-xlsx]: https://www.npmjs.com/package/xlsx
 
 ## Contributing
 
