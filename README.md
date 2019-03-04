@@ -1,11 +1,11 @@
-# ember-xlsx
+# ember-table-exporter
 
 Ember-wrapper for the [XLSX][npm-xlsx] package. Also includes some handy components for downloading EmberData records and plain JavaScript objects as CSV or XLSX files.
 
 ## Installation
 
 ```
-ember install ember-xlsx
+ember install ember-table-exporter
 ```
 
 ## Usage
@@ -13,13 +13,13 @@ ember install ember-xlsx
 To render a download-link for an XLSX file:
 
 ```hbs
-{{#xlsx-download-link
+{{#table-exporter-xlsx
   filename='my-fine-data.xlsx'
   data=my-data
   worksheetTitle='Historical weather data'
 }}
   Download ALL THE DATA!
-{{/xlsx-download-link}}
+{{/table-exporter-xlsx}}
 ```
 
 The `data` should be an `Array` (or `EmberArray`) of objects that all have the same shape. They can be either `EmberObject`s or plain JavaScript objects. Example:
@@ -36,12 +36,12 @@ The `filename` and `worksheetTitle` attributes are optional and will use `data.x
 To render a download-link for a CSV file:
 
 ```hbs
-{{#csv-download-link
+{{#table-exporter-csv
   filename='my-fine-data.csv'
   data=my-data
 }}
   I prefer plain text
-{{/csv-download-link}}
+{{/table-exporter-csv}}
 ```
 
 To use any other functionality provided by the [XLSX][npm-xlsx] package, simply use the `XLSX` global anywhere in your app.
@@ -52,8 +52,8 @@ To use any other functionality provided by the [XLSX][npm-xlsx] package, simply 
 
 ### Installation
 
-* `git clone https://github.com/immocapital/ember-xlsx`
-* `cd ember-xlsx`
+* `git clone https://github.com/immocapital/ember-table-exporter`
+* `cd ember-table-exporter`
 * `npm install`
 
 ### Linting
