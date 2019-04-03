@@ -1,21 +1,21 @@
-<h2 id="title">Welcome to the Ember-XLSX example page</h2>
+<h2 id="title">Welcome to the ember-table-exporter example page</h2>
 
 {{outlet}}
 
-{{#xlsx-download-link
+{{#table-exporter-xlsx
   filename='my-fine-data.xlsx'
   data=myData
   worksheetTitle='Historical weather data'
 }}
   Download ALL THE DATA!
-{{/xlsx-download-link}}
+{{/table-exporter-xlsx}}
 
-{{#csv-download-link
+{{#table-exporter-csv
   filename='my-fine-data.csv'
   data=myData
 }}
   I prefer plain text
-{{/csv-download-link}}
+{{/table-exporter-csv}}
 
 <p>
   <b>Hint:</b> Look at <code>application.hbs</code> to see what's going on.

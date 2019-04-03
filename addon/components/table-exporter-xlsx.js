@@ -1,11 +1,11 @@
 /* global XLSX */
 import {
   get,
-  getWithDefault as get_with_default,
+  getWithDefault,
   computed,
 } from '@ember/object';
 import Component from '@ember/component';
-import layout from '../templates/components/xlsx-download-link';
+import layout from '../templates/components/table-exporter-xlsx';
 
 export default Component.extend({
   layout,
@@ -15,24 +15,24 @@ export default Component.extend({
   'worksheetTitle': 'Untitled worksheet',
   'linkClass': '',
 
-  'actual_filename': computed('filename', function() {
-    const provided_filename = get(this, 'filename');
-    if (provided_filename.toLowerCase().match(/\.xlsx$/)) {
-      return provided_filename;
+  'filenameWithXlsxExtension': computed('filename', function() {
+    const providedFilename = get(this, 'filename');
+    if (providedFilename.toLowerCase().endsWith('.xlsx')) {
+      return providedFilename;
     }
 
-    return `${provided_filename}.xlsx`;
+    return `${providedFilename}.xlsx`;
   }),
 
   // eslint-disable-next-line ember/avoid-leaking-state-in-ember-objects
   'actions': {
-    download_xlsx_file() {
-      const model          = get_with_default(this, 'data', []);
+    downloadXlsxFile() {
+      const model          = getWithDefault(this, 'data', []);
       const sheet          = XLSX.utils.json_to_sheet(model);
       const workbook       = XLSX.utils.book_new();
       const worksheetTitle = get(this, 'worksheetTitle');
       XLSX.utils.book_append_sheet(workbook, sheet, worksheetTitle);
-      const filename = get(this, 'filename');
+      const filename = get(this, 'filenameWithXlsxExtension');
       XLSX.writeFile(workbook, filename); // `writeFile` downloads the file
     },
   },

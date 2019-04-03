@@ -6,8 +6,8 @@ export default Controller.extend({
     this._super(...args);
 
     set(this, 'myData', [
-      { date: 'yesterday', rain: 'yes' },
-      { date: 'tomorrow',  rain: 'no'  },
+      { 'date': 'yesterday', 'rain': 'yes' },
+      { 'date': 'tomorrow',  'rain': 'no'  },
     ]);
   },
 });

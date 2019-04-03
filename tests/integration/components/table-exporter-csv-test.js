@@ -1,10 +1,10 @@
 import { module, test } from 'qunit';
-import { setupRenderingTest as setup_rendering_test } from 'ember-qunit';
+import { setupRenderingTest } from 'ember-qunit';
 import { render, find } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-module('Integration | Component | csv-download-link', function(hooks) {
-  setup_rendering_test(hooks);
+module('Integration | Component | table-exporter-csv', function(hooks) {
+  setupRenderingTest(hooks);
 
   test('it renders', async function(assert) {
     this.set('data', [
@@ -13,12 +13,12 @@ module('Integration | Component | csv-download-link', function(hooks) {
     ]);
 
     await render(hbs`
-      {{#csv-download-link
+      {{#table-exporter-csv
         filename='my-test-data.csv'
         data=data
       }}
         The link label matches
-      {{/csv-download-link}}
+      {{/table-exporter-csv}}
     `);
 
     assert.equal(this.element.textContent.trim(), 'The link label matches');
@@ -28,17 +28,17 @@ module('Integration | Component | csv-download-link', function(hooks) {
     this.set('data', [{ 'foo': 1 }]);
 
     await render(hbs`
-      {{#csv-download-link
+      {{#table-exporter-csv
         filename='my-test-data.CSV'
         data=data
       }}
         Download my data
-      {{/csv-download-link}}
+      {{/table-exporter-csv}}
     `);
 
-    const link_element = find('a');
+    const linkElement = find('a');
     assert.equal(
-      link_element.download,
+      linkElement.download,
       'my-test-data.CSV',
       '`download` attribute should match provided name'
     );
@@ -48,14 +48,14 @@ module('Integration | Component | csv-download-link', function(hooks) {
     this.set('data', [{ 'foo': 1 }]);
 
     await render(hbs`
-      {{#csv-download-link data=data}}
+      {{#table-exporter-csv data=data}}
         Download my data
-      {{/csv-download-link}}
+      {{/table-exporter-csv}}
     `);
 
-    const link_element = find('a');
+    const linkElement = find('a');
     assert.equal(
-      link_element.download,
+      linkElement.download,
       'data.csv',
       '`download` attribute should fallback to default value'
     );

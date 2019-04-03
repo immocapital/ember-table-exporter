@@ -1,9 +1,9 @@
 {
-  "name": "ember-xlsx",
+  "name": "ember-table-exporter",
   "version": "1.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Download you a CSV file for great good",
   "keywords": [
-    "ember-addon"
+    "ember-addon", "csv", "xlsx", "download"
   ],
   "repository": "",
   "license": "MIT",
