@@ -42,9 +42,6 @@ jobs:
       - attach_workspace:
           at: .
       - run:
-          name: Lint Handlebars
-          command: yarn lint:hbs
-      - run:
           name: Lint JavaScript
           command: yarn lint:js
 
