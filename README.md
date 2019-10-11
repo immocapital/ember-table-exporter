@@ -1,4 +1,4 @@
-# ember-table-exporter
+# ember-table-exporter [![CircleCI](https://circleci.com/gh/immocapital/ember-table-exporter/tree/master.svg?style=svg)](https://circleci.com/gh/immocapital/ember-table-exporter/tree/master)
 
 Ember-wrapper for the [XLSX][npm-xlsx] package. Also includes some handy components for downloading EmberData records and plain JavaScript objects as CSV or XLSX files.
 
